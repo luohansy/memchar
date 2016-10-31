@@ -9,12 +9,12 @@ MODULE_LICENSE("Dual BSD/CPL");
 /*static int memchar_major, memchar_minor; */
 
 static int memchar_init(void) {
-    printk(KERN_INFO "memchar module has been inited")
+    printk(KERN_INFO "memchar module has been inited");
     return 0;
 }
 
 static int memchar_exit(void) {
-    rintk(KERN_INFO "memchar module has been exited")
+    rintk(KERN_INFO "memchar module has been exited");
     return 0;
 }
 
