@@ -15,7 +15,7 @@ static int memchar_init(void) {
 
 static int memchar_exit(void) {
     rintk(KERN_INFO "memchar module has been exited")
-    return;
+    return 0;
 }
 
 module_init(memchar_init);
