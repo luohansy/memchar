@@ -6,7 +6,7 @@
 
 MODULE_LICENSE("Dual BSD/CPL");
 
-static int memchar_major, memchar_minor;
+/*static int memchar_major, memchar_minor; */
 
 static int memchar_init(void) {
     printk(KERN_INFO "memchar module has been inited")
