@@ -9,8 +9,6 @@
 #define MEMCHAR_MAJOR 0
 #endif
 
-
-
 loff_t memchar_llseek(struct file*, int);
 ssize_t memchar_read(struct file*, char __user*, size_t, loff_t*);
 ssize_t memchar_write(struct file*, const char __user*, size_t, loff_t*);
