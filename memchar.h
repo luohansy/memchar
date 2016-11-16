@@ -18,10 +18,8 @@ int memchar_release(struct inode*, struct file*);
 
 struct file_operations memchar_fops = {
     .owner = THIS_MODULE,
-    .llseek = memchar_llseek,
     .read = memchar_read,
     .write = memchar_write,
-    .ioctl = memchar_ioctl,
     .open = memchar_open,
     .release = memchar_release,
 };
