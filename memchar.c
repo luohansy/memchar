@@ -15,10 +15,12 @@ int memchar_minor = 0;
 struct memchar_dev* devices;
 
 int memchar_open(struct inode* inode, struct file* filp) {
+    printk(KERN_INFO "memchar has been opened");
     return 0;
 }
 
 int memchar_release(struct inode* inode, struct file* filp) {
+    printk(KERN_INFO "memchar has been released");
     return 0;
 }
 
