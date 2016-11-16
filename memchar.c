@@ -42,7 +42,7 @@ static void memchar_setup_cdev(struct memchar_dev* dev) {
 static void memchar_cleanup_module(void) {
     dev_t devno = MKDEV(memchar_major, memchar_minor);
     cdev_del(&devices->cdev);
-    kfree(memchar_dev);
+    kfree(devices);
     unregister_chrdev_region(devno, 1);
 }
 
@@ -58,7 +58,7 @@ static int memchar_init(void) {
     } else {
         ret = alloc_chrdev_region(&dev, memchar_minor, 1, "memchar");
         if (ret < 0) {
-            printk(KERN_WARNING "memchar: can't get major %d\n", mem_major);
+            printk(KERN_WARNING "memchar: can't get major %d\n", memchar_major);
             return ret;
         }
         memchar_major = MAJOR(dev);
@@ -81,7 +81,7 @@ fail:
 }
 
 static int memchar_exit(void) {
-    scull_cleanup_module();
+    memchar_cleanup_module();
     printk(KERN_INFO "memchar module has been exited");
     return 0;
 }
