@@ -7,7 +7,7 @@
 
 MODULE_LICENSE("Dual BSD/CPL");
 
-int memchar_major = MEMCHAR_MAJON;
+int memchar_major = MEMCHAR_MAJOR;
 int memchar_minor = 0;
 
 struct memchar_dev* devices;
