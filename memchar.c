@@ -3,6 +3,8 @@
 #include <linux/cdev.h>
 #include <linux/errno.h>
 #include <linux/kernel.h>
+#include <linux/slab.h>
+#include <linux/types.h>
 #include "memchar.h"
 
 MODULE_LICENSE("Dual BSD/CPL");
@@ -24,7 +26,7 @@ ssize_t memchar_read(struct file *filp, char __user *buf, size_t count, loff_t *
     return 0;
 }
 
-ssize_t memchar_write(struct file *filp, char __user *buf, size_t count, loff_t *f_pos) {
+ssize_t memchar_write(struct file *filp, const char __user *buf, size_t count, loff_t *f_pos) {
     return 0;
 }
 
@@ -37,9 +39,9 @@ static void memchar_setup_cdev(struct memchar_dev* dev) {
     }
 }
 
-static void memchar_cleanup_module() {
+static void memchar_cleanup_module(void) {
     dev_t devno = MKDEV(memchar_major, memchar_minor);
-    cdev_del(&memchar_dev->cdev);
+    cdev_del(&devices->cdev);
     kfree(memchar_dev);
     unregister_chrdev_region(devno, 1);
 }

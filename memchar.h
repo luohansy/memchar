@@ -9,10 +9,8 @@
 #define MEMCHAR_MAJOR 0
 #endif
 
-loff_t memchar_llseek(struct file*, int);
 ssize_t memchar_read(struct file*, char __user*, size_t, loff_t*);
 ssize_t memchar_write(struct file*, const char __user*, size_t, loff_t*);
-int memchar_ioctl(struct inode*, struct file*, unsigned int, unsigned long);
 int memchar_open(struct inode*, struct file*);
 int memchar_release(struct inode*, struct file*);
 
