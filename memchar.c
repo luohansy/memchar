@@ -80,13 +80,10 @@ fail:
     return ret;
 }
 
-static int memchar_exit(void) {
+void memchar_exit(void) {
     memchar_cleanup_module();
     printk(KERN_INFO "memchar module has been exited");
-    return 0;
 }
-
-
 
 module_init(memchar_init);
 module_exit(memchar_exit);
